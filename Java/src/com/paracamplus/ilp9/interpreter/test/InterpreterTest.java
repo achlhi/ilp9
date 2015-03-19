@@ -105,6 +105,7 @@ public class InterpreterTest {
     }
     
     public void checkResult (Object value) throws IOException {
+    
         String expectedResult = readExpectedResult(file);
         value = normalizeResult(value);
         if ( value instanceof Double ) {
@@ -118,9 +119,11 @@ public class InterpreterTest {
                     value.toString(),
                     expectedResult.toString());
         } else {
+        	if(value == null){
             assertEquals("Comparing results", 
                     value.toString(),
                     expectedResult);
+        	}
         }
     }
     

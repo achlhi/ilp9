@@ -28,7 +28,6 @@ expression =
  | invocation
  | codefinitions
  | lambda
-
 alternative = element alternative {
    element condition   { expression },
    element consequence { expression + },
@@ -97,12 +96,23 @@ finally = element finally {
 
 variable = element variable {
    attribute name { xsd:Name - ( xsd:Name { pattern = "(ilp|ILP)" } ) },
+   attribute global { "true" | "false" } ?,
    empty
 }
 
+ 
 operation =
    unaryOperation
  | binaryOperation
+ | ternaryOperation
+
+
+ternaryOperation = element ternaryOperation {
+   attribute operator { "?:" },
+   element firstOperand    { expression },
+    element secondOperand    { expression }
+}
+
 
 unaryOperation = element unaryOperation {
    attribute operator { "-" | "!" },
@@ -130,7 +140,7 @@ constant =
     attribute value { "true" | "false" },
     empty }
 
-
+ 
 ### Object section
 
 expression |=
@@ -197,5 +207,3 @@ program = element program {
 }
 
 # end of grammar9.rnc
-
-

@@ -12,9 +12,9 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(value=Suite.class)
 @SuiteClasses(value={
-        com.paracamplus.ilp9.tools.test.FileToolTest.class,
-        com.paracamplus.ilp9.tools.test.ProgramCallerTest.class,
+//        com.paracamplus.ilp9.tools.test.FileToolTest.class,
+//        com.paracamplus.ilp9.tools.test.ProgramCallerTest.class,
         com.paracamplus.ilp9.interpreter.test.InterpreterTest.class,
-        com.paracamplus.ilp9.compiler.test.CompilerTest.class,
+//        com.paracamplus.ilp9.compiler.test.CompilerTest.class,
 })
 public class WholeTestSuite {}

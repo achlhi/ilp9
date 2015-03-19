@@ -292,6 +292,8 @@ implements IASTCvisitor<Void, Compiler.Context, CompilationException> {
             return visit((IASTCglobalVariable) iast, context);
         }
     }
+ 
+    
     public Void visit(IASTCvariable iast, Context context)
             throws CompilationException {
         throw new RuntimeException("should not occur");
@@ -1282,4 +1284,5 @@ implements IASTCvisitor<Void, Compiler.Context, CompilationException> {
         emit("ILP_FindAndCallSuperMethod(); \n");
         return null;
     }
+
 }

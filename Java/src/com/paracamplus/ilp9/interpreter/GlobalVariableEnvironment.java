@@ -9,6 +9,7 @@ package com.paracamplus.ilp9.interpreter;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.paracamplus.ilp9.interpreter.interfaces.EvaluationException;
 import com.paracamplus.ilp9.interpreter.interfaces.IGlobalVariableEnvironment;
 import com.paracamplus.ilp9.interpreter.interfaces.IPrimitive;
 
@@ -32,7 +33,7 @@ public class GlobalVariableEnvironment implements IGlobalVariableEnvironment {
         globalVariableEnvironment.put(primitive.getName(), primitive);
     }
     
-    public void updateGlobalVariableValue(String variableName, Object value) {
-        globalVariableEnvironment.put(variableName, value);
+    public void updateGlobalVariableValue(String variableName, Object value) throws EvaluationException {
+        throw new EvaluationException("Mutable");
     }
 }

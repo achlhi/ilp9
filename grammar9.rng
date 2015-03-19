@@ -216,6 +216,11 @@
           </except>
         </data>
       </attribute>
+        <optional>
+ 			<attribute name="global">
+            	<value>true</value>
+        	</attribute>
+          </optional>
       <empty/>
     </element>
   </define>
@@ -223,8 +228,31 @@
     <choice>
       <ref name="unaryOperation"/>
       <ref name="binaryOperation"/>
+      <ref name="ternaryOperation"/>
+      
     </choice>
   </define>
+  
+    <define name="ternaryOperation">
+    <element name="ternaryOperation">
+      <attribute name="operator">
+        <choice>
+          <value>?:</value>
+        </choice>
+      </attribute>
+      <element name="firstOperand">
+        <ref name="expression"/>
+      </element>
+       
+      <element name="secondOperand">
+        <ref name="expression"/>
+      </element>
+       
+      
+    </element>
+  </define>
+  
+  
   <define name="unaryOperation">
     <element name="unaryOperation">
       <attribute name="operator">

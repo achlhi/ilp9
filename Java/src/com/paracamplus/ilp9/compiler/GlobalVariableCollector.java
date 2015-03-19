@@ -369,4 +369,5 @@ implements IASTCvisitor<Set<IASTCglobalVariable>,
                     throws CompilationException {
         return result;
     }
+ 
 }

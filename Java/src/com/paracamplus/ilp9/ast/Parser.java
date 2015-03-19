@@ -71,6 +71,7 @@ public class Parser extends AbstractExtensibleParser {
         addMethod("send", Parser.class);
         addMethod("self", Parser.class);
         addMethod("superInvocation", Parser.class, "super");
+        
 	}
 	  
     public void setInput(Input input) {
@@ -213,8 +214,12 @@ public class Parser extends AbstractExtensibleParser {
     }
     
     public IASTexpression variable (Element e) throws ParseException {
-        final String name = e.getAttribute("name");
+    	final String name = e.getAttribute("name");
+    	final String global = e.getAttribute("global");
         IASTvariable variable = getFactory().newVariable(name);
+        if(global != null && "true".compareTo(global) == 0){
+        	variable.setGlobalKeyWordPresent();
+        }
         return variable;
     }
     
@@ -295,6 +300,7 @@ public class Parser extends AbstractExtensibleParser {
             throws ParseException {
         String name = e.getAttribute("name");
         IASTvariable functionVariable = getFactory().newVariable(name);
+        
         List<IASTvariable> vs = new Vector<>();
         NodeList vars = findChild(e, "variables").getChildNodes();
         for ( int i=0 ; i<vars.getLength() ; i++ ) {

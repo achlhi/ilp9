@@ -133,6 +133,8 @@ implements IASTvisitor<Object, ILexicalEnvironment, EvaluationException> {
         }
         return value;
     }
+    
+    
 
     public Object visit(IASTunaryOperation iast, ILexicalEnvironment lexenv) 
             throws EvaluationException {
@@ -200,13 +202,17 @@ implements IASTvisitor<Object, ILexicalEnvironment, EvaluationException> {
     public Object visit(IASTvariable iast, ILexicalEnvironment lexenv) 
             throws EvaluationException {
         try {
+        	if(iast.isGlobalKeyWordPresent()){
+        		 return getGlobalVariableEnvironment()
+                         .getGlobalVariableValue(iast.getName());
+        	}
             return lexenv.getValue(iast);
         } catch (EvaluationException exc) {
             return getGlobalVariableEnvironment()
                     .getGlobalVariableValue(iast.getName());
         }
     }
-    
+	
     public Invocable visit(IASTfunctionDefinition iast, ILexicalEnvironment lexenv) 
             throws EvaluationException {
         Invocable fun = new Function(iast.getVariables(),
@@ -407,4 +413,7 @@ implements IASTvisitor<Object, ILexicalEnvironment, EvaluationException> {
          IMethod supermethod = isci.getSuperMethod();
          return supermethod.apply(this, isci.getArguments());
     }
+
+
+
 }

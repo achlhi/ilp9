@@ -6,8 +6,5 @@
  ***************************************************************** */
 package com.paracamplus.ilp9.interfaces;
 
-public interface IASTvariable extends IASTexpression, Inamed {
-	public void setGlobalKeyWordPresent();
-	public boolean isGlobalKeyWordPresent();
-	
+public interface IASTglobal extends IASTexpression, Inamed {
 }

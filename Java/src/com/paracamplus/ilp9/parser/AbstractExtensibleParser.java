@@ -51,6 +51,7 @@ public abstract class AbstractExtensibleParser extends AbstractParser {
               if ( ! Element.class.isAssignableFrom(parameterTypes[0]) ) {
                   continue;
               }
+              System.out.println(m);
               return m;
           }
           if ( Object.class == clazz ) {

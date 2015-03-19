@@ -30,4 +30,5 @@ public interface IASTvisitor<Result, Data, Anomaly extends Throwable> {
     Result visit(IASTunaryOperation iast, Data data) throws Anomaly;
     Result visit(IASTvariable iast, Data data) throws Anomaly;
     Result visit(IASTfieldWrite iast, Data data) throws Anomaly;
+    
 }

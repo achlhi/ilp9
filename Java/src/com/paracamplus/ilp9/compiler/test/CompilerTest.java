@@ -52,7 +52,7 @@ import com.paracamplus.ilp9.tools.ProgramCaller;
 public class CompilerTest {
     
     protected static String rngFileName = "grammar9.rng";
-    protected static String samplesDirName = "Samples";
+    protected static String samplesDirName = "C:/Users/bousaid/git/ilp9-fork/Samples";
     protected static String pattern = "ur?[0-78]\\d*-[123456](gfv)?";
     
     public CompilerTest(final File file) {
@@ -149,6 +149,15 @@ public class CompilerTest {
                     throws Anomaly {
                 return visitor.visit(this, data);
             }
+			@Override
+			public void setGlobalKeyWordPresent() {
+				
+			}
+			@Override
+			public boolean isGlobalKeyWordPresent() {
+				// TODO Auto-generated method stub
+				return false;
+			}
         };
         public IASTvariable[] getVariables() {
             throw new RuntimeException("NYI"); // FIXME
@@ -194,16 +203,16 @@ public class CompilerTest {
         FileTool.stuffFile(cFile, compiled);
 
         try {
-          String indentProgram = "indent " + cFile.getAbsolutePath();
-          ProgramCaller pcindent = new ProgramCaller(indentProgram);
-          pcindent.run();
+//          String indentProgram = "indent " + cFile.getAbsolutePath();
+//          ProgramCaller pcindent = new ProgramCaller(indentProgram);
+//          pcindent.run();
           System.out.println(FileTool.slurpFile(cFile));
         } catch (Exception exc) {
           // program 'indent' is probably absent, ignore!
           System.out.println(compiled);
         }
 
-        String compileProgram = "bash C/compileThenRun.sh +gc "
+        String compileProgram = "bash C:/Users/bousaid/git/ilp9-fork/C/compileThenRun.sh +gc "
             + cFile.getAbsolutePath();
         ProgramCaller pc = new ProgramCaller(compileProgram);
         pc.setVerbose();

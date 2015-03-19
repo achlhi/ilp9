@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<program
+><!-- test:name description='global attribute' 
+--><block
+><bindings
+><binding
+><variable name='x'
+/><initialisation
+><integer value='1'
+/></initialisation
+></binding
+><binding
+><variable name='pi'
+/><initialisation
+><integer value='1'
+/></initialisation
+></binding
+></bindings
+><body
+><binaryOperation operator='+'
+><leftOperand
+><variable name='pi' global="true"
+/></leftOperand
+><rightOperand
+><variable name='x'
+/></rightOperand
+></binaryOperation
+></body
+></block
+></program
+>
